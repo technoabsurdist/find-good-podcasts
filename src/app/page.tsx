@@ -13,7 +13,7 @@ export default function Home() {
         <div className="z-10 mt-1 max-w-7xl w-full flex items-center justify-between font-mono text-sm">
           <div className='flex flex-col max-w-[300px]'>
             <p className='text-gray-700 text-xl font-semibold mr-7 mt-6'>
-              <span className='font-extrabold'>Finally</span>, a podcast search engine that actually works
+              <span className='font-extrabold bg-emerald-400'>Finally</span>, a podcast search engine that actually works
             </p>
             <p className='text-gray-500 text-md'>By <a className='underline' target="_blank" href="https://github.com/technoabsurdist">Emi</a></p>
           </div>

@@ -52,7 +52,7 @@ export function PodcastCard({title, publishedDate, highlights, url}: PodcastCard
   };
 
   return (
-    <div className="shadow-md shadow-gray-400 bg-white rounded-lg p-6 max-w-md mx-auto" style={{ height: '400px', overflow: 'hidden' }}>
+    <div className="shadow-md shadow-emerald-200 bg-white rounded-lg p-6 max-w-md mx-auto" style={{ height: '400px', overflow: 'hidden' }}>
       <div className="flex flex-col justify-between h-full">
         <div>
           <p className="text-gray-500 text-sm">{formatDate(publishedDate)}</p>
@@ -60,7 +60,6 @@ export function PodcastCard({title, publishedDate, highlights, url}: PodcastCard
             <a href={url} target="_blank">{title}</a>
           </h2>
         </div>
-        {/* <div className="aspect-w-16 aspect-h-9" /> */}
         <div className="" style={{ overflowY: 'auto' }}>
           <p className="text-gray-600">
               {summaryHighlights ? summaryHighlights : "Generating description..."}
