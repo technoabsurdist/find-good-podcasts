@@ -12,7 +12,7 @@ export function PodcastCard({title, publishedDate, highlights, url}: PodcastCard
     fetchOEmbed(url);
 
     const handleHighlights = async (highlights: string[]) => {
-      const query = `Create a summary of the podcast based on what you know + the following information: Title of podcast: ${title}.\n Published on: ${publishedDate}.\n URL: ${url}. The following is either some highlights I found online about the episode, or complete internet gibberish: ${highlights}. If it's gibberish, don't use it, but if it's actual highlights, use it in the summary. Don't mention the title or date in the concise summary. ONLY output a 5-6 sentence summary of the episode.`
+      const query = `Create a summary of the podcast based on what you know + the following information: Title of podcast: ${title}.\n Published on: ${publishedDate}.\n URL: ${url}. The following is either some highlights I found online about the episode, or complete internet gibberish: ${highlights}. If it's gibberish, don't use it, but if it's actual highlights, use it in the summary. Don't mention the title or date in the concise summary. ONLY output a 3 sentence summary of the episode.`
       try {
         const response = await fetch('/api/summary', {
           method: 'POST',
@@ -52,7 +52,7 @@ export function PodcastCard({title, publishedDate, highlights, url}: PodcastCard
   };
 
   return (
-    <div className="shadow-md shadow-gray-400 bg-white rounded-lg p-6 max-w-md mx-auto" style={{ height: '600px', overflow: 'hidden' }}>
+    <div className="shadow-md shadow-gray-400 bg-white rounded-lg p-6 max-w-md mx-auto" style={{ height: '400px', overflow: 'hidden' }}>
       <div className="flex flex-col justify-between h-full">
         <div>
           <p className="text-gray-500 text-sm">{formatDate(publishedDate)}</p>
