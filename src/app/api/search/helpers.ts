@@ -6,7 +6,7 @@ export async function searchPodcasts(prompt: string) {
     const exa = new Exa()
 
     const options = {
-        num_results: 20,
+        num_results: 10,
         use_autoprompt: true,
         type: 'neural',
         highlights: { highlightsPerUrl: 7, numSentences: 1, query: "Summary of the podcast episode"}

@@ -9,7 +9,7 @@ export function PodcastCard({title, publishedDate, highlights, url}: PodcastCard
 
   useEffect(() => {
     const handleHighlights = async (highlights: string[]) => {
-      const query = `Create a summary of the podcast based on what you know + the following information: Title of podcast: ${title}.\n Published on: ${publishedDate}.\n URL: ${url}. The following is either some highlights I found online about the episode, or complete internet gibberish: ${highlights}. If it's gibberish, don't use it, but if it's actual highlights, use it in the summary. ONLY Output a 5-6 sentence summary of the episode.`
+      const query = `Create a summary of the podcast based on what you know + the following information: Title of podcast: ${title}.\n Published on: ${publishedDate}.\n URL: ${url}. The following is either some highlights I found online about the episode, or complete internet gibberish: ${highlights}. If it's gibberish, don't use it, but if it's actual highlights, use it in the summary. Don't mention the title or date in the concise summary. ONLY output a 5-6 sentence summary of the episode.`
       try {
         const response = await fetch('/api/summary', {
           method: 'POST',
@@ -20,7 +20,6 @@ export function PodcastCard({title, publishedDate, highlights, url}: PodcastCard
         });
 
         const { result: summary } = await response.json();
-        console.log("summary: ", summary)
         setSummaryHighlights(summary)
       } catch (error) {
         console.error('Error fetching search results:', error);
@@ -34,9 +33,9 @@ export function PodcastCard({title, publishedDate, highlights, url}: PodcastCard
     <div className="bg-white rounded-lg shadow-lg p-6 max-w-md mx-auto" style={{ height: '400px', overflow: 'hidden' }}>
       <div className="flex flex-col justify-between h-full">
         <div>
-          <p className="text-gray-500 text-sm">Published on {publishedDate}</p>
+          <p className="text-gray-500 text-sm">{formatDate(publishedDate)}</p>
           <h2 className="text-xl font-bold">
-            {title}
+            <a href={url} target="_blank">{title}</a>
           </h2>
         </div>
         {/* <div>
@@ -61,4 +60,13 @@ export function PodcastCard({title, publishedDate, highlights, url}: PodcastCard
       </div>
     </div>
   )
+}
+
+function formatDate(dateString: string): string {
+  const date = new Date(dateString);
+  return date.toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric'
+  });
 }
