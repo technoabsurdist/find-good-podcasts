@@ -59,25 +59,27 @@ export function Search({setResults}: SearchProps) {
   };
 
   return (
-    <div className="flex items-center w-full max-w-3xl mx-auto">
+    <>
+    <div className="flex items-center w-full max-w-5xl mx-auto">
       <Button className='mr-2 bg-transparent hover:bg-transparent' onClick={handleRandom}>
-        <RandomIcon className='' height='1.8em' fill='grey' /> 
+        <RandomIcon height='2.5em' fill='gray' /> 
       </Button>
       <Input
-        className="flex-1 py-5 px-4 rounded-l-md bg-gray-100 dark:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400 text-md"
+        className="shadow-sm flex-1 py-6 px-4 rounded-l-md bg-gray-100 dark:bg-gray-800 focus:outline-none !focus:outline-indigo-600 text-lg"
         placeholder="Search for podcasts..."
         type="search"
         value={inputValue}
         onChange={e => setInputValue(e.target.value)}
       />
       <Button
-        className="ml-5 bg-indigo-600 hover:bg-indigo-800 text-white font-medium py-4 px-6 rounded-r-md text-lg"
+        className="ml-5 bg-indigo-600 hover:bg-indigo-800 text-white font-medium py-6 px-6 rounded-r-md text-lg"
         type="submit"
         onClick={handleSubmit}
       >
         Search
       </Button>
     </div>
+    </>
   );
 }
 
@@ -106,5 +108,13 @@ const randomOptions = [
   "The Psychedelic Renaissance: LSD's Return to Scientific Research",
   "Pablo Escobar's Hippos: A Colombian Legacy",
   "The Development of CRISPR: A Revolution in Gene Editing",
-  "The Invention of Blockchain and the Birth of Bitcoin"
+  "The Invention of Blockchain and the Birth of Bitcoin",
+  "Mark Zuckerberg and the Creation of Facebook",
+  "The Initiation of the Human Genome Project",
+  "The Discovery of the Dead Sea Scrolls",
+  "The First Heart Transplant",
+  "The Creation of the Panama Canal",
+  "The Rise of the Roman Empire",
+  "The Founding of the United Nations",
+  "The Jazz Age: Music, Flappers, and the Roaring Twenties",
 ]

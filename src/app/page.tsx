@@ -9,10 +9,7 @@ export default function Home() {
   return (
     <>
       <main className="flex min-h-screen flex-col items-center justify-between p-24">
-        <div className="pb-7 z-10 mt-10 max-w-7xl w-full flex items-center justify-between font-mono text-sm">
-        {/* <p className='font-mono antialiased font-semibold col-span-5 text-left text-2xl tracking-wider'>
-          Finally, a good podcast search engine!
-        </p> */}
+        <div className="pb-4 z-10 mt-5 max-w-7xl w-full flex items-center justify-between font-mono text-sm">
           <Search setResults={setResults}/> 
         </div>
         <div className="gap-5 p-20 max-w-8xl w-full grid grid-cols-3 font-mono text-sm">
