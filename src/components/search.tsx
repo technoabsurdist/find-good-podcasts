@@ -65,14 +65,14 @@ export function Search({setResults}: SearchProps) {
         <RandomIcon height='2.5em' fill='gray' /> 
       </Button>
       <Input
-        className="shadow-sm flex-1 py-6 px-4 rounded-l-md bg-gray-100 dark:bg-gray-800 focus:outline-none !focus:outline-indigo-600 text-lg"
+        className="shadow-sm flex-1 py-6 px-4 rounded-l-md bg-gray-100 dark:bg-gray-800 focus:outline-none !focus:outline-gray-600 text-lg"
         placeholder="Search for podcasts..."
         type="search"
         value={inputValue}
         onChange={e => setInputValue(e.target.value)}
       />
       <Button
-        className="ml-5 bg-indigo-600 hover:bg-indigo-800 text-white font-medium py-6 px-6 rounded-r-md text-lg"
+        className="ml-5 bg-gray-600 hover:bg-gray-800 text-white font-medium py-6 px-6 rounded-r-md text-lg"
         type="submit"
         onClick={handleSubmit}
       >
