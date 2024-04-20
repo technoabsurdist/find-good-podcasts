@@ -19,7 +19,7 @@ export async function POST(req: Request) {
 }
 
 
-export async function generateSummary(query: string) {
+async function generateSummary(query: string) {
     dotenv.config()
     const openai = new OpenAI()
     const completion = await openai.chat.completions.create({

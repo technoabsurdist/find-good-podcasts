@@ -12,7 +12,7 @@ export function PodcastCard({title, publishedDate, highlights, url}: PodcastCard
     fetchOEmbed(url);
 
     const handleHighlights = async (highlights: string[]) => {
-      const query = `Create a summary of the podcast based on what you know + the following information: Title of podcast: ${title}.\n Published on: ${publishedDate}.\n URL: ${url}. The following is either some highlights I found online about the episode, or complete internet gibberish: ${highlights}. If it's gibberish, don't use it, but if it's actual highlights, use it in the summary. Don't mention the title or date in the concise summary. ONLY output a 3 sentence summary of the episode.`
+      const query = `Create a summary of the podcast based on what you know + the following information: Title of podcast: ${title}.\n Published on: ${publishedDate}.\n URL: ${url}. The following is either some highlights I found online about the episode, or complete internet gibberish: ${highlights}. If it's gibberish, don't use it, but if it's actual highlights, use it in the summary. Don't mention the title or date in the concise summary. ONLY output a 3 sentence summary of the episode that is concise, direct and uses simple, clear language.`
       try {
         const response = await fetch('/api/summary', {
           method: 'POST',

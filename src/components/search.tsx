@@ -61,7 +61,7 @@ export function Search({setResults}: SearchProps) {
   return (
     <>
     <div className="flex items-center w-full max-w-5xl mx-auto">
-      <Button className='mr-2 bg-transparent hover:bg-transparent' onClick={handleRandom}>
+      <Button className='mr-2 bg-transparent hover:bg-transparent' onClick={handleRandom} aria-label='Random Prompt'>
         <RandomIcon height='2.5em' fill='gray' /> 
       </Button>
       <Input
