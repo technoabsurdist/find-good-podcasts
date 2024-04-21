@@ -42,10 +42,11 @@ export function Search({setResults}: SearchProps) {
       }).then(async response => {
         console.log("response: ", response)
         if (response.status !== 200) {
-          console.error(`Error fetching! Search results with status: ${response.status}`);
+          console.log(`Error fetching! Search results with status: ${response.status}`);
           return;
         }
         const data = await response.json();
+        console.log("data: ", data)
         const podcastResults = data.podcasts.results; 
         const output: Result[] = podcastResults.map((item: Result) => ({
           author: item.author,
