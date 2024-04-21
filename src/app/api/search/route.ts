@@ -16,12 +16,12 @@ export async function POST(req: Request) {
     }
 
     try {
-        const result = await searchPodcasts(query);
-        if (!result) {
+        const podcasts = await searchPodcasts(query);
+        if (!podcasts) {
             return new Response(JSON.stringify({ error: 'No search results found.' }), { status: 404 });
         }
 
-        return new Response(JSON.stringify({ result }), { status: 200 });
+        return new Response(JSON.stringify({ podcasts }), { status: 200 });
     } catch (error) {
         console.error('Error during search:', error);
         return new Response(JSON.stringify({ error: 'Internal Server Error' }), { status: 500 });

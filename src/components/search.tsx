@@ -41,8 +41,8 @@ export function Search({setResults}: SearchProps) {
         body: JSON.stringify({ query: inputValue }),
       });
 
-      const { result } = await response.json();
-      const output: Result[] = result.results.map((item: Result) => ({
+      const { podcasts } = await response.json();
+      const output: Result[] = podcasts.results.map((item: Result) => ({
         author: item.author,
         id: item.id,
         publishedDate: item.publishedDate,
@@ -65,8 +65,8 @@ export function Search({setResults}: SearchProps) {
         <RandomIcon height='2.5em' fill='gray' /> 
       </Button>
       <Input
-        className="shadow-sm flex-1 py-7 px-4 rounded-l-md bg-white-100 dark:bg-gray-800 focus:outline-none !focus:outline-gray-600 text-lg"
-        placeholder="Search for podcasts..."
+        className="shadow-sm flex-1 py-7 px-4 rounded-l-md bg-white-100 !focus:outline-gray-600 text-md"
+        placeholder="Search for podcasts based on what you wanna learn"
         type="search"
         value={inputValue}
         onChange={e => setInputValue(e.target.value)}
