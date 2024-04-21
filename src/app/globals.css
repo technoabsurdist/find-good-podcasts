@@ -41,3 +41,67 @@ body {
     margin-top: 50px; /* Adds space between the stacked elements */
   }
 }
+
+@media (max-width: 900px) {
+
+  .z-10 > div, .z-10 > Search {
+    width: 100%; /* Makes each child take the full width of the container */
+    display: flex;
+
+  }
+
+  #search-button { /* Assuming your submit button has a class 'search-button' */
+    width: auto; /* Adjust as needed, can also be 100% if full width is desired */
+    order: 2; /* Ensures the button is placed after other elements if in the same container */
+  }
+  
+  /* Allow text and elements to wrap to new lines */
+  .font-mono,
+  .text-gray-700,
+  .text-xl,
+  .text-md,
+  .text-sm,
+  .mt-1,
+  .mr-7,
+  .mt-6,
+  .text-gray-500,
+  .underline,
+  .text-stone-300,
+  .text-emerald-400,
+  .flex,
+  .gap-6,
+  .pt-10,
+  .grid,
+  .grid-cols-1,
+  .text-sm,
+  .fixed,
+  .right-4,
+  .bottom-4,
+  .bg-white,
+  .shadow-lg,
+  .rounded-lg,
+  .items-center,
+  .justify-between,
+  .toast,
+  .p-4,
+  .bg-white,
+  .shadow-lg,
+  .rounded-lg,
+  .flex,
+  .items-center,
+  .justify-between,
+  .text-gray-600,
+  .text-sm,
+  .mr-3,
+  .text-stone-300,
+  .text-gray-500,
+  .text-lg,
+  .leading-none {
+    width: 100%; /* Make elements take full width */
+  }
+  
+  /* Add margin to create space between stacked elements */
+  .mt-4 {
+    margin-top: 1rem;
+  }
+}

@@ -113,6 +113,7 @@ export function Search({ setResults }: SearchProps) {
         <Button
           className="ml-3  bg-emerald-500 hover:bg-emerald-600 dark:hover:bg-emerald-600 text-white dark:bg-emerald-500 dark:text-black font-medium py-9 px-6 rounded-r-md text-lg"
           type="submit"
+          id="search-button"
           onClick={handleSubmit}
           disabled={isLoading}
         >
