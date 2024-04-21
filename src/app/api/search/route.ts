@@ -23,7 +23,7 @@ export async function POST(req: Request) {
 
         return new Response(JSON.stringify({ podcasts }), { status: 200 });
     } catch (error) {
-        console.error('Error during search:', error);
+        console.log('Error during search:', error);
         return new Response(JSON.stringify({ error: 'Internal Server Error' }), { status: 500 });
     }
 }

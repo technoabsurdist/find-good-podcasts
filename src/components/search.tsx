@@ -40,6 +40,7 @@ export function Search({setResults}: SearchProps) {
         },
         body: JSON.stringify({ query: inputValue }),
       }).then(async response => {
+        console.log("response: ", response)
         if (response.status !== 200) {
           console.error(`Error fetching! Search results with status: ${response.status}`);
           return;
