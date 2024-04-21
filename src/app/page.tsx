@@ -16,7 +16,7 @@ export default function Home() {
         <div className="z-10 mt-1 max-w-7xl w-full flex items-center justify-between text-sm">
           <div className='flex flex-col max-w-[300px]'>
             <p className='dark:text-zinc-300 text-gray-700 text-xl font-semibold mr-7 mt-6'>
-              <span className='font-extrabold bg-yellow-400 dark:text-black'>Finally</span>, <span className='dark:bg-emerald-400 dark:text-black'>a podcast search engine that actually works</span>
+              <span className='font-extrabold bg-emerald-400 dark:text-black'>Finally</span>, <span className='dark:bg-emerald-400 dark:text-black'>a podcast search engine that actually works</span>
             </p>
             <p className='text-gray-500 text-md mt-1'>
             <a className='dark:text-zinc-300 underline' target="_blank" href="https://github.com/technoabsurdist/find-good-podcasts">Github</a>
