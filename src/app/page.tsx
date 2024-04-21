@@ -18,12 +18,16 @@ export default function Home() {
             <p className='text-gray-700 text-xl font-semibold mr-7 mt-6'>
               <span className='font-extrabold bg-emerald-400'>Finally</span>, a podcast search engine that actually works
             </p>
-            <p className='text-gray-500 text-md mt-1'>By <a className='underline' target="_blank" href="https://github.com/technoabsurdist">Emi</a></p>
+            <p className='text-gray-500 text-md mt-1'>
+            <a className='underline' target="_blank" href="https://github.com/technoabsurdist/find-good-podcasts">Github</a> --
+              By <a className='underline' target="_blank" href="https://github.com/technoabsurdist">Emi</a>{' '}
+            </p>
+            
           </div>
-          <Search setResults={setResults} setShowTip={setShowTip}/> 
+          <Search setResults={setResults} /> 
         </div>
 
-        <div className="gap-5 p-20 max-w-9xl w-full grid grid-cols-3 text-sm">
+        <div className="gap-6 pt-10 max-w-9xl w-full grid grid-cols-3 text-sm">
           {/* lazy solve: Sometimes returns embeds, which don't display correctly */}
           {results ? 
           
