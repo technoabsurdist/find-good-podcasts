@@ -27,7 +27,7 @@ export default function Home() {
           <Search setResults={setResults} /> 
         </div>
 
-        <div className="gap-6 pt-10 max-w-9xl w-full grid grid-cols-3 text-sm">
+        <div className="gap-6 pt-10 max-w-7xl w-full grid grid-cols-3 text-sm">
           {/* lazy solve: Sometimes returns embeds, which don't display correctly */}
           {results ? 
           
