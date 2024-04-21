@@ -25,7 +25,7 @@ export function PodcastCard({title, publishedDate, highlights, url}: PodcastCard
         const { result: summary } = await response.json();
         setSummaryHighlights(summary)
       } catch (error) {
-        console.error('Error fetching search results:', error);
+        console.error('Error fetching summary results:', error);
       }
     };
     handleHighlights(highlights);

@@ -31,8 +31,8 @@ export default function Home() {
           {/* lazy solve: Sometimes returns embeds, which don't display correctly */}
           {results ? 
           
-          results.filter(result => result.title !== "Spotify Embed").map((r) => (
-            <PodcastCard key={r.id} {...r} 
+          results.filter(result => result.title !== "Spotify Embed").map((result) => (
+            <PodcastCard key={result.id} {...result} 
             />
           )) 
 
