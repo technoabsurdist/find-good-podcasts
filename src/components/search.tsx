@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { RandomIcon } from './random-icon';
+import { FaSpinner } from 'react-icons/fa'; // Make sure to install react-icons if not already
 
 export interface Result {
   author: null;
@@ -18,8 +19,10 @@ export interface Result {
 interface SearchProps {
   setResults: (results: Result[] | null) => void;
 }
+
 export function Search({setResults}: SearchProps) {
   const [inputValue, setInputValue] = useState("");
+  const [isLoading, setLoading] = useState(false); // State to track loading
 
   const handleRandom = () => {
     const randomIndex = Math.floor(Math.random() * randomOptions.length);
@@ -32,6 +35,7 @@ export function Search({setResults}: SearchProps) {
       return;
     }
     
+    setLoading(true); // Start loading
     try {
       const response = await fetch('/api/search', {
         method: 'POST',
@@ -39,31 +43,30 @@ export function Search({setResults}: SearchProps) {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({ query: inputValue }),
-      }).then(async response => {
-        console.log("response: ", response)
-        if (response.status !== 200) {
-          console.log(`Error fetching! Search results with status: ${response.status}`);
-          return;
-        }
-        const data = await response.json();
-        console.log("data: ", data)
-        const podcastResults = data.podcasts.results; 
-        const output: Result[] = podcastResults.map((item: Result) => ({
-          author: item.author,
-          id: item.id,
-          publishedDate: item.publishedDate,
-          score: item.score,
-          title: item.title,
-          url: item.url,
-          highlights: item.highlights,
-        }));
-        output.sort((a, b) => b.score - a.score);
-        setResults(output)
-      })
-      .catch(error => console.error('Error fetching data:', error));
+      });
 
+      const data = await response.json();
+      if (response.status !== 200) {
+        console.log(`Error fetching! Search results with status: ${response.status}`);
+        setLoading(false);
+        return;
+      }
+      const podcastResults = data.podcasts.results;
+      const output: Result[] = podcastResults.map((item: Result) => ({
+        author: item.author,
+        id: item.id,
+        publishedDate: item.publishedDate,
+        score: item.score,
+        title: item.title,
+        url: item.url,
+        highlights: item.highlights,
+      }));
+      output.sort((a, b) => b.score - a.score);
+      setResults(output);
+      setLoading(false); // End loading
     } catch (error) {
       console.error('Error fetching search results:', error);
+      setLoading(false); // Ensure loading is false in case of error
     }
   };
 
@@ -84,13 +87,15 @@ export function Search({setResults}: SearchProps) {
         className="ml-5 bg-emerald-500 hover:bg-emerald-600 text-gray-100 font-medium py-7 px-6 rounded-r-md text-lg"
         type="submit"
         onClick={handleSubmit}
+        disabled={isLoading} // Disable button during loading
       >
-        Search
+        {isLoading ? <FaSpinner className="animate-spin" /> : 'Search'}
       </Button>
     </div>
     </>
   );
 }
+
 
 const randomOptions = [
   "Story of Elon Musk founding SpaceX",

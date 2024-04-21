@@ -12,7 +12,7 @@ export default function Home() {
   return (
     <>
     
-      <main className="font-mono flex min-h-screen flex-col items-center justify-between p-24">
+      <main className="font-mono flex min-h-screen flex-col items-center justify-between p-24 pt-10">
         <div className="z-10 mt-1 max-w-7xl w-full flex items-center justify-between text-sm">
           <div className='flex flex-col max-w-[300px]'>
             <p className='text-gray-700 text-xl font-semibold mr-7 mt-6'>
