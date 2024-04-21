@@ -39,10 +39,8 @@ export function PodcastCard({title, publishedDate, highlights, url}: PodcastCard
       const data = await response.json();
       let modifiedHtml = data.html;
   
-      modifiedHtml = modifiedHtml.replace(/height="\d+"/, 'height="80"'); // Set a fixed height
       modifiedHtml = modifiedHtml.replace(/width="\d+%"/, 'width="100%"'); // Set width to 100%
       
-      modifiedHtml = modifiedHtml.replace(/allowfullscreen/g, '');
       modifiedHtml = modifiedHtml.replace(/picture-in-picture/g, '');
   
       setEmbedHtml(modifiedHtml);
@@ -52,17 +50,17 @@ export function PodcastCard({title, publishedDate, highlights, url}: PodcastCard
   };
 
   return (
-    <div className="font-mono shadow-sm bg-white rounded-md p-4 max-w-md" style={{ height: '400px', overflow: 'hidden' }}>
+    <div className="font-mono shadow-sm bg-white rounded-md p-4" style={{ overflow: 'hidden' }}>
       <div className="flex flex-col justify-between h-full">
         <div>
           <p className="text-gray-500 text-sm">{formatDate(publishedDate)}</p>
-          <h2 className="text-gray-700 text-xl font-bold ">
+          <h2 className="text-gray-700 text-xl font-bold">
             <a href={url} target="_blank">{title}</a>
           </h2>
         </div>
-        <div className="" style={{ overflowY: 'auto' }}>
+        <div style={{ overflowY: 'auto' }}>
           <p className="text-gray-600">
-              {summaryHighlights ? summaryHighlights : "Generating description..."}
+            {summaryHighlights ? summaryHighlights : "Generating description..."}
           </p>
         </div>
         <div className='mt-2' dangerouslySetInnerHTML={{ __html: embedHtml }} />
