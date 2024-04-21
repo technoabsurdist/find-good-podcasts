@@ -19,8 +19,8 @@ export default function Home() {
               <span className='font-extrabold bg-emerald-400'>Finally</span>, a podcast search engine that actually works
             </p>
             <p className='text-gray-500 text-md mt-1'>
-            <a className='underline' target="_blank" href="https://github.com/technoabsurdist/find-good-podcasts">Github</a> --
-              By <a className='underline' target="_blank" href="https://github.com/technoabsurdist">Emi</a>{' '}
+            <a className='underline' target="_blank" href="https://github.com/technoabsurdist/find-good-podcasts">Github</a>
+              {/* By <a className='underline' target="_blank" href="https://github.com/technoabsurdist">Emi</a>{' '} */}
             </p>
             
           </div>
