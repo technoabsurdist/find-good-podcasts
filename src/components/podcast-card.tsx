@@ -52,7 +52,7 @@ export function PodcastCard({title, publishedDate, highlights, url}: PodcastCard
   };
 
   return (
-    <div className="shadow-md shadow-emerald-200 bg-white rounded-lg p-6 max-w-md mx-auto" style={{ height: '400px', overflow: 'hidden' }}>
+    <div className="font-mono shadow-sm bg-white rounded-lg p-8 max-w-md mx-auto" style={{ height: '400px', overflow: 'hidden' }}>
       <div className="flex flex-col justify-between h-full">
         <div>
           <p className="text-gray-500 text-sm">{formatDate(publishedDate)}</p>

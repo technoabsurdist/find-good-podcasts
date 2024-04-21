@@ -26,3 +26,18 @@ body {
     rgb(var(--background-start-rgb));
 }
 
+.z-10 {
+  display: flex;
+  flex-wrap: nowrap; /* Ensures no wrapping occurs at base level */
+  justify-content: space-between; /* Aligns children on opposite ends */
+}
+
+@media (max-width: 900px) {
+  .z-10 {
+    flex-direction: column; /* Stacks children vertically on small screens */
+  }
+  .z-10 > div, .z-10 > Search {
+    width: 100%; /* Makes each child take the full width of the container */
+    margin-top: 50px; /* Adds space between the stacked elements */
+  }
+}
