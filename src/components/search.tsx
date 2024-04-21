@@ -72,7 +72,7 @@ export function Search({setResults}: SearchProps) {
         onChange={e => setInputValue(e.target.value)}
       />
       <Button
-        className="ml-5 bg-emerald-500 hover:bg-emerald-600 text-white font-medium py-7 px-6 rounded-r-md text-lg"
+        className="ml-5 bg-emerald-500 hover:bg-emerald-600 text-gray-100 font-medium py-7 px-6 rounded-r-md text-lg"
         type="submit"
         onClick={handleSubmit}
       >
@@ -116,4 +116,10 @@ const randomOptions = [
   "The Rise of the Roman Empire",
   "The Founding of the United Nations",
   "The Jazz Age: Music, Flappers, and the Roaring Twenties",
+  "Model T and the Automobile Revolution by Henry Ford",
+  "Ada Lovelace and the Pioneering of Computer Programming",
+  "Advanced Robotics in Automated Manufacturing Processes",
+  "AI in Drug Discovery and Molecular Modeling", 
+  "The Development of Ethereum by Vitalik Buterin",
+  "The Pioneering of SaaS Business Models",
 ]
