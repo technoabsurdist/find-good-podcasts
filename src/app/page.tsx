@@ -40,14 +40,6 @@ export default function Home() {
 
           (
             <>
-              {showTip && (
-                <div className="dark:bg-zinc-950 dark:text-stone-300 toast fixed right-4 bottom-4 w-100 p-4 bg-white shadow-lg rounded-lg flex items-center justify-between">
-                  <p className="dark:text-stone-300 text-gray-600 text-sm mr-3">
-                    <span className="font-bold">Tip:</span> Click on random generations for inspiration!
-                  </p>
-                  <button onClick={() => setShowTip(false)} className="text-gray-500 text-lg leading-none">&times;</button>
-                </div>
-              )}
             </>
           )}
 
