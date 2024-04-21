@@ -39,20 +39,27 @@ export function Search({setResults}: SearchProps) {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({ query: inputValue }),
-      });
+      }).then(async response => {
+        if (response.status !== 200) {
+          console.error(`Error fetching! Search results with status: ${response.status}`);
+          return;
+        }
+        const data = await response.json();
+        const podcastResults = data.podcasts.results; 
+        const output: Result[] = podcastResults.map((item: Result) => ({
+          author: item.author,
+          id: item.id,
+          publishedDate: item.publishedDate,
+          score: item.score,
+          title: item.title,
+          url: item.url,
+          highlights: item.highlights,
+        }));
+        output.sort((a, b) => b.score - a.score);
+        setResults(output)
+      })
+      .catch(error => console.error('Error fetching data:', error));
 
-      const { podcasts } = await response.json();
-      const output: Result[] = podcasts.results.map((item: Result) => ({
-        author: item.author,
-        id: item.id,
-        publishedDate: item.publishedDate,
-        score: item.score,
-        title: item.title,
-        url: item.url,
-        highlights: item.highlights,
-      }));
-      output.sort((a, b) => b.score - a.score);
-      setResults(output)
     } catch (error) {
       console.error('Error fetching search results:', error);
     }
