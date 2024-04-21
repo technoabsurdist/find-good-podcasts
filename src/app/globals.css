@@ -46,13 +46,16 @@ body {
 
   .z-10 > div, .z-10 > Search {
     width: 100%; /* Makes each child take the full width of the container */
+    margin-top: 0.5rem; /* Adjusts vertical spacing */
     display: flex;
-
+    flex-direction: column; /* Ensures elements stack vertically */
+    margin-bottom: 5rem; 
   }
 
   #search-button { /* Assuming your submit button has a class 'search-button' */
     width: auto; /* Adjust as needed, can also be 100% if full width is desired */
     order: 2; /* Ensures the button is placed after other elements if in the same container */
+    margin-top: 1rem; /* Adds space between the search input and the button */
   }
   
   /* Allow text and elements to wrap to new lines */
