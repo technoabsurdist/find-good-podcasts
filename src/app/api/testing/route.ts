@@ -1,12 +1,6 @@
 import { NextResponse } from 'next/server'
 import { Result } from '@/components/search';
 
-export async function GET(request: Request) {
-    return NextResponse.json({
-        message: "Server running :)"
-    }); 
-}
-
 export async function POST(req: Request) {
     const body = await req.json();
 
